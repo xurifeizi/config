@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stf.dao.ParameterDetailsDao">
+	<select id="list" resultType="String">
+		select brand_id, brand_name, model_id, model_name, channel_id, channel_name, memory_id, memory_name, color_id, color_name, 
+			   guarantee_id, guarantee_name, fuselage_id, fuselage_name, screen_id, screen_indo, display_id, display_info, 
+			   repair_id, repair_info, damp_id, damp_info, other_id, other_info,
+ 			from tab_phone_brand where 1 = 1
+		<if test="brand_idCondition != '' and brand_idCondition != null">
+			and brand_id like concat('%', #{brand_idCondition}, '%')
+		</if>
+		<if test="model_idCondition != '' and model_idCondition != null">
+			and model_id like concat('%', #{model_idCondition}, '%')
+		</if>
+		<if test="channel_idCondition != '' and channel_idCondition != null">
+			and channel_id like concat('%', #{channel_idCondition}, '%')
+		</if>
+		<if test="memory_idCondition != '' and memory_idCondition != null">
+			and memory_id like concat('%', #{memory_idCondition}, '%')
+		</if>
+		<if test="color_idCondition != '' and color_idCondition != null">
+			and color_id like concat('%', #{color_idCondition}, '%')
+		</if>
+		<if test="guarantee_idCondition != '' and guarantee_idCondition != null">
+			and guarantee_id like concat('%', #{guarantee_idCondition}, '%')
+		</if>
+		<if test="fuselage_idCondition != '' and fuselage_idCondition != null">
+			and fuselage_id like concat('%', #{fuselage_idCondition}, '%')
+		</if>
+		<if test="screen_idCondition != '' and screen_idCondition != null">
+			and screen_id like concat('%', #{screen_idCondition}, '%')
+		</if>
+		<if test="display_idCondition != '' and display_idCondition != null">
+			and display_id like concat('%', #{display_idCondition}, '%')
+		</if>
+		<if test="repair_idCondition != '' and repair_idCondition != null">
+			and repair_id like concat('%', #{repair_idCondition}, '%')
+		</if>
+		<if test="damp_idCondition != '' and damp_idCondition != null">
+			and damp_id like concat('%', #{damp_idCondition}, '%')
+		</if>
+		<if test="other_idCondition != '' and other_idCondition != null">
+			and other_id like concat('%', #{other_idCondition}, '%')
+		</if>
+
+	</select>
+</mapper>
